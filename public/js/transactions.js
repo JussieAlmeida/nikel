@@ -1,96 +1,90 @@
-const mymodal = new bootstrap.Modal(#transaction-modal);
+const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 
 let data = {
-    transactions: []
+    transaction: []
 };
 
-ocument.getElementById("button-logout").addEventListener("click, logout");
+document.getElementById("button-logout").addEventListener("click", logout);
 
-
-
-//ADICIONAR LANÇAMENTO
-document.getElementById("transaction-form").addEventListener("submit", function(e) {
+// ADICIONAR LANÇAMENTO
+document.getElementById("transactions-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const value =  parseFloat(document.getElementById("value-input").value);
-    const descripition = document.getElementById("descripition-input").value;
+    const value = parseFloat(document.getElementById("value-input").value);
+    const description = document.getElementById("description-input").value;
     const date = document.getElementById("date-input").value;
-    const type = document.querySelector('input[name="tape-input"]:checked').value;
+    const type = document.querySelector('input[name="type-input"]:checked').value;
 
     data.transactions.unshift({
-        value: value, type: type, descripition: descripition, date: date
+        value: value, type: type, description: description, date: date
     });
 
-    saveDate(date);
+    saveData(data);
     e.target.reset();
-    mymodal.hide();
+    myModal.hide();
 
-    getTransaction();
-
-   
+    getTransactions();
 
     alert("Lançamento adicionado com sucesso.");
 
 
 });
 
-checklogged ();
+checkLogged();
 
-function checklogged() {
-    if(session){
+function checkLogged() {
+    if (session) {
         sessionStorage.setItem("logged", session);
         logged = session;
     }
 
-    if(!logged) {
-        
+    if (!logged) {
         window.location.href = "index.html";
         return;
     }
+
     const dataUser = localStorage.getItem(logged);
-    if(dataUser) {
-     data = JSON.parse(dataUser);
+    if (dataUser) {
+        data = JSON.parse(dataUser);
     }
 
-    getTransaction();
+    getTransactions();
 
 }
 
 function logout() {
     sessionStorage.removeItem("logged");
     localStorage.removeItem("session");
-    
-    window.location.href = "index.html"
-}
 
-function getTransaction() {
+    window.location.href = "index.html";
+}
+function getTransactions() {
     const transactions = data.transactions;
     let transactionsHtml = ``;
 
-    if(transactions.length) {
+    if (transactions.lenght) {
         transactions.forEach((item) => {
             let type = "Entrada";
 
-            if(item.type === "2") {
+            if (item.type === "2") {
                 type = "Saída";
             }
 
             transactionsHtml += `
-                <tr>
+               <tr>
                     <th scope="row">${item.date}</th>
-                     <td>${item.value.toFixed(2)}</td>
-                     <td>${type}</td>
-                     <td>${item.descripition}</td>
-                </tr>
+                    <td>${item.value.toFixed(2)}</td>
+                    <td>${type}</td>
+                    <td>${item.description}</td>
+             </tr>
             `
-        })
+        });
     }
-
     document.getElementById("transactions-list").innerHTML = transactionsHtml;
 }
 
-function saveDate(date){
+function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
 }

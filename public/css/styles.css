@@ -7,9 +7,9 @@
 }
 
 header {
-    border-bottom: 1px solid #bebcbc;
+    border-bottom: 1px solid #bebcbc !important;
     padding: 5px;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
 
 .color-primary {
@@ -38,61 +38,62 @@ header {
 }
 
 .button-login {
-    border-radius: 10px;
-    background-color: #4e0070;
-    color: #ffffff;
+    border-radius: 10px !important;
+    background-color: #4e0070 !important;
+    color: #ffffff!important ;
     width: 50%;
     margin: 0 25%;
 }
 
-.button-default {
+.buttom-default {
     border-radius: 10px;
-    background-color: #4e0070;
-    color: #ffffff;
+    background-color: #4e0070 !important;
+    color: #ffffff !important;
 }
+
 
 .button-cancel {
     border-radius: 10px;
 }
 
 .button-float {
-    border-radius: 100;
-    height: 60px;
-    width: 60px;
-    position: fixed;
-    padding: 0; !important;
-    bottom: 1rem;
-    right: 2rem;
-    font-size: 35px;
-    border: 2px solid  #4e0070;
-    background-color: #4e0070;
-    color: #ffffff;
+    border-radius: 100% !important
+    height: 60px ;
+    width: 60px !important;
+    position: fixed !important;
+    padding: 0 !important;
+    bottom: 1rem !important;
+    right: 2rem !important;
+    font-size: 35px !important;
+    border: 2px solid  #4e0070 !important;
+    background-color: #4e0070 !important;
+    color: #ffffff !important;
 }
 
 .button-float:hover {
-    border: 2px solid  #4c79d3;
-    background-color: #ffffff;
-    color: #4c79d3;
+    border: 2px solid  #4c79d3 !important ;
+    background-color: #ffffff !important;
+    color: #4c79d3 !important ;
 }
 
 .button-login:hover, .button-default:hover {
-    background: #4c79d3;
-    color: #ffffff;
+    background: #4c79d3 !important;
+    color: #ffffff !important;
 }
 
-.Link-default {
-    color: #4e0070;
-    cursor: pointer;
+.link-default {
+    color: #4e0070 !important;
+    cursor: pointer !important;
 }
 
-.Link-default:hover {
-    color: #4c79d3;
+.link-default:hover {
+    color: #4c79d3 !important;
 }
 
 .info {
-    background-color: #ffffff;
-    border-radius: 20px 20px 0px 0px;
-    padding: 20px 0px 0px 0px;
+    background-color: #ffffff !important;
+    border-radius: 20px 20px 0px 0px !important;
+    padding: 20px 0px 0px 0px !important;
 }
 
 .logout {
